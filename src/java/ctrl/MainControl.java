@@ -21,38 +21,30 @@ public class MainControl {
     @RequestMapping(value = "/get", method = RequestMethod.GET) //Maps category/getCat
     @ResponseStatus(value= HttpStatus.OK)
     @ResponseBody //Kad grąžintų atsakymą iš db į browserį
-    public String getCategory() {    //http://localhost:9999/WS_full/buildings/get
+    public String get() {    //http://localhost:9999/WS_full/buildings/get
         registry a = new registry();
         return a.gautiSarasa().toString();
     }
-  // get pasirinkta reiksme pagal pavadinima
-      @RequestMapping(value = "/getThat_{reiksme}", method = RequestMethod.GET) //Maps category/getThat
-    @ResponseStatus(value= HttpStatus.OK)
-    @ResponseBody //Kad grąžintų atsakymą iš db į browserį
-    public String getThat(@PathVariable String reiksme) {    //http://localhost:9999/WS_full/buildings/getThat_Tadas
-        registry a = new registry();
-        return a.gautita(reiksme).toString();
-    }
-
-    
-    
-
-    @RequestMapping(value ="/addCat_{pavadinimas}_{aprasymas}",method = RequestMethod.POST) //Vesdami per url turėsite nurodyti konkrečias reikšmes. Realiam gyvenime tokio sprendimo netaikyti, naudoti POST, GET, PUT ir kt. metodus
   
-    //link'as perduodant parametrus atrodys taip: http://localhost:8080/WS_full/category/addCat_testineKat_testinisDesc
-    public ModelAndView addCategory(@PathVariable String pavadinimas, @PathVariable String aprasymas) { //ModelAndView: Represents a model and view returned by a handler, to be resolved by a DispatcherServlet.
+
+ 
+    @RequestMapping(value ="/add_{ad}_{ow}_{s}_{m}_{pt}",method = RequestMethod.POST) 
+    @ResponseStatus(value=HttpStatus.OK)
+    @ResponseBody  
+    //link'as perduodant parametrus atrodys taip: http://localhost:9999/WS_full/buildings/add_slenio_zigimantas_40_20000_sodas
+    public ModelAndView add(@PathVariable String ad, @PathVariable String ow, @PathVariable int s, @PathVariable int m, @PathVariable String pt) { //ModelAndView: Represents a model and view returned by a handler, to be resolved by a DispatcherServlet.
         //t.y. sėkmės ir nesėkmės atveju įvyks redirect į kažkokį puslapį
         registry a = new registry();
         try {
-            boolean success = a.pridetiKategorija(pavadinimas, aprasymas); //Kviečiame kategorijų pridėjimą
+            boolean success = a.pridetiKategorija(ad,ow,s,m,pt); //Kviečiame kategorijų pridėjimą
             if (success) {
                 return new ModelAndView("redirect:/index.htm");
             } else {
                 return new ModelAndView("redirect:/klaida.htm");
             }
         } catch (Exception e) {
-            //return new ModelAndView("redirect:/klaida.htm");
-            return null;
+           return new ModelAndView("redirect:/klaida.htm");
+           
         }
     }
 

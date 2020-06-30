@@ -91,7 +91,7 @@ public class buildings implements Serializable{
 
     @Override
     public String toString() {
-        return "buildings{" + "address=" + address + ", owner=" + owner + ", property_type=" + property_type + ", market_value=" + market_value + ", size=" + size + '}';
+        return "buildings = {" +'"'+ "address"+'"'+":" +'"'+address +'"'+','+'"'+ "owner"+'"'+":" +'"'+owner +'"'+','+'"'+ "property_type"+'"'+":" +'"'+property_type +'"'+','+'"'+ "market_value"+'"'+":"+market_value +','+'"'+ "size"+'"'+":"+size + '}';
     }
    
     

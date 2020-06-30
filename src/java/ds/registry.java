@@ -15,10 +15,10 @@ public class registry implements Serializable {
     Connection conn;
     Statement stmt;
 
-    public boolean pridetiKategorija(String pav, String aprasymas) {
+    public boolean pridetiKategorija(String ad, String ow,int s,int m, String pt) {
         try {
             this.prisijungtiPrieDB();
-            String uzklausa = "INSERT INTO test.ps (KATEGORIJOS, DESCR) VALUES ('" + pav + "', '" + aprasymas + "')";
+            String uzklausa = "INSERT INTO test.ps (Address,Owner,Size,Market_Value,Property_Type) VALUES ('" + ad + "', '" + ow + "', '" + s + "', '" + m + "', '" + pt + "')";
             stmt.execute(uzklausa);
             this.atsijungtiNuoDB();
             return true;
@@ -57,34 +57,7 @@ public class registry implements Serializable {
 
    
 
-    public buildings gautita(String kat) { // gauti 1 irasa pagal
-        buildings bul = null;
-        registry a = new registry();
-        try {
-            prisijungtiPrieDB();
-            String sql = "SELECT * FROM test.ps WHERE OWNER =" + kat;
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()) {
-                 String add = rs.getString("Address");
-                String own = rs.getString("Owner");
-               String size2= rs.getString("Size");
-                 String Mar_val= rs.getString("Market_Value");
-                 String Prop_type = rs.getString("Property_Type");
-                   int size_int=Integer.parseInt(size2);  
-                    int Mar_val_int=Integer.parseInt(Mar_val);    
-                buildings naujas = new buildings(add,own,size_int,Mar_val_int,Prop_type);
-                bul = naujas;
-                break;
-            }
-            rs.close();
-            atsijungtiNuoDB();
-        } catch (Exception e) {
-            System.out.println("klaida gaunant ownerius: ");
-            e.printStackTrace();
-        }
-        return bul;
-    }
-
+   
     public ArrayList<buildings> gautiSarasa() { // gauti sarasa
         this.buildings_l = new ArrayList();
         try {
