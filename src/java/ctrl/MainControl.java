@@ -2,7 +2,10 @@ package ctrl;
 
 import org.springframework.stereotype.Controller;
 import ds.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.http.HttpStatus;
@@ -26,6 +29,31 @@ public class MainControl {
         return a.gautiSarasa().toString();
     }
   
+/*@RequestMapping(value ="/", method = RequestMethod.GET) //http://localhost:9999/WS_full/buildings/
+public ModelAndView list() {
+    registry a = new registry();
+       ArrayList<buildings> list = a.gautiSarasa();
+    ModelAndView map = new ModelAndView("index");
+    map.addObject("lists", list);
+
+    return map;
+}
+*/
+    
+@RequestMapping(value = "/", method = RequestMethod.GET)
+	public ModelAndView listAction() {
+          registry a = new registry();
+		ArrayList<buildings> empList = a.gautiSarasa();
+	
+
+		ModelAndView mv = new ModelAndView();
+
+		mv.setViewName("index");
+		mv.addObject("empList", empList);
+
+		return mv;
+
+	}
 
  
     @RequestMapping(value ="/add_{ad}_{ow}_{s}_{m}_{pt}",method = RequestMethod.POST) 
@@ -86,3 +114,4 @@ public class MainControl {
     }
 
 }
+

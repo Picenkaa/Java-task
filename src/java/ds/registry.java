@@ -45,7 +45,7 @@ public class registry implements Serializable {
     public boolean keisti(String ad, int nmv) {
         try {
             this.prisijungtiPrieDB();
-            String uzklausa = "UPDATE test.ps SET Market_Value = '" + nmv + "'  WHERE Address = '" + ad + "'";
+            String uzklausa = "UPDATE test.ps SET Market_Value = '" + nmv + "'  WHERE Address = '" + ad+ "'";
             stmt.execute(uzklausa);
             this.atsijungtiNuoDB();
             return true;
