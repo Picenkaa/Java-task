@@ -6,7 +6,7 @@
         <title>Error!</title>
         <script type="text/javascript">
             function Atgal(){
-                window.location = "http://localhost:8080/WS_full/index.htm";
+                window.location = "http://localhost:9999/WS_full/index.htm";
             }
         </script>
     </head>

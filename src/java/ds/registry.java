@@ -15,7 +15,7 @@ public class registry implements Serializable {
     Connection conn;
     Statement stmt;
 
-    public boolean pridetiKategorija(String ad, String ow,int s,int m, String pt) {
+    public boolean prideti(String ad, String ow,int s,int m, String pt) {
         try {
             this.prisijungtiPrieDB();
             String uzklausa = "INSERT INTO test.ps (Address,Owner,Size,Market_Value,Property_Type) VALUES ('" + ad + "', '" + ow + "', '" + s + "', '" + m + "', '" + pt + "')";
@@ -29,10 +29,10 @@ public class registry implements Serializable {
 
    
 
-    public boolean salintiKategorija(String kategorijosPavadinimas) {
+    public boolean salinti(String addd) {
         try {
             this.prisijungtiPrieDB();
-            String uzklausa = "DELETE FROM test.ps  WHERE KATEGORIJOS = '" + kategorijosPavadinimas + "'";
+            String uzklausa = "DELETE FROM test.ps WHERE Address ='" + addd + "'";
             stmt.execute(uzklausa);
             this.atsijungtiNuoDB();
             return true;
@@ -42,10 +42,10 @@ public class registry implements Serializable {
         }
     }
 
-    public boolean keistiKategPavad(String name, String newname) {
+    public boolean keisti(String ad, int nmv) {
         try {
             this.prisijungtiPrieDB();
-            String uzklausa = "UPDATE test.ps SET KATEGORIJOS = '" + newname + "'  WHERE KATEGORIJOS = '" + name + "'";
+            String uzklausa = "UPDATE test.ps SET Market_Value = '" + nmv + "'  WHERE Address = '" + ad + "'";
             stmt.execute(uzklausa);
             this.atsijungtiNuoDB();
             return true;

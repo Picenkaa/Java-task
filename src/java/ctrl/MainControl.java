@@ -36,7 +36,7 @@ public class MainControl {
         //t.y. sėkmės ir nesėkmės atveju įvyks redirect į kažkokį puslapį
         registry a = new registry();
         try {
-            boolean success = a.pridetiKategorija(ad,ow,s,m,pt); //Kviečiame kategorijų pridėjimą
+            boolean success = a.prideti(ad,ow,s,m,pt); //Kviečiame kategorijų pridėjimą
             if (success) {
                 return new ModelAndView("redirect:/index.htm");
             } else {
@@ -48,12 +48,14 @@ public class MainControl {
         }
     }
 
-    @RequestMapping(value= "/delCat_{pavadinimas}", method = RequestMethod.DELETE)
-    //link'as perduodant parametrus atrodys taip: http://localhost:8080/WS_full/category/delCat_testinis
-    public ModelAndView deleteCategory(@PathVariable String pavadinimas) {
+    @RequestMapping(value= "/del_{addd}", method = RequestMethod.DELETE)
+    //link'as perduodant parametrus atrodys taip:http://localhost:9999/WS_full/buildings/del_slenio // addressa 
+    @ResponseStatus(value=HttpStatus.OK)
+      @ResponseBody  
+    public ModelAndView delete(@PathVariable String addd) {
         registry afv = new registry();
         try {
-            boolean a = afv.salintiKategorija(pavadinimas);
+            boolean a = afv.salinti(addd);
             if (a) {
                 return new ModelAndView("redirect:/index.htm");
             } else {
@@ -64,12 +66,15 @@ public class MainControl {
         }
     }
     //Kintamieji mappinge ir metodo argumentu pavadinimai turi sutapti
-    @RequestMapping(value= "/updCat_{pavadinimasSenas}_{pavadinimasNaujas}",method = RequestMethod.PUT)
-    //link'as perduodant parametrus atrodys taip: http://localhost:8080/WS_full/category/updCat_testinis_testinis2
-    public ModelAndView updateCategory(@PathVariable String pavadinimasSenas, @PathVariable String pavadinimasNaujas) {
+    @RequestMapping(value= "/upd_{ad}_{nmv}",method = RequestMethod.PUT)
+    //link'as perduodant parametrus atrodys taip:http://localhost:9999/WS_full/buildings/upd_slenio_20
+    @ResponseStatus(value=HttpStatus.OK)
+      @ResponseBody  
+    public ModelAndView update(@PathVariable String ad, @PathVariable int nmv) {
         registry afv = new registry();
+        // int nwmi=Integer.parseInt(nmv);  
         try {
-            boolean a = afv.keistiKategPavad(pavadinimasSenas, pavadinimasNaujas);
+            boolean a = afv.keisti(ad, nmv);
             if (a) {
                 return new ModelAndView("redirect:/index.htm");
             } else {
