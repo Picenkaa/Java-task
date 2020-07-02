@@ -19,6 +19,10 @@ public class buildings implements Serializable{
         
     }
 
+    public buildings() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getAddress() {
         return address;
     }

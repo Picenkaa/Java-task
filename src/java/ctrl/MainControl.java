@@ -13,6 +13,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,6 +34,10 @@ public class MainControl {
         registry a = new registry();
         return a.gautiSarasa().toString();
     }
+    
+
+    
+    
 
     @RequestMapping(value = "/tax_{reiksme}", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
@@ -68,6 +74,7 @@ public class MainControl {
 
         }
         String s = String.valueOf(skaiciavimas);
+        
 
         return reiksme + " siais metais uz visus savo pastatus tures sumoketi = " + s;
     }
