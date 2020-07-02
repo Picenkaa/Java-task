@@ -1,17 +1,17 @@
-<%-- 
-    Document   : own_tax
-    Created on : Jul 1, 2020, 6:18:55 PM
-    Author     : tueik
---%>
+<%@ page isELIgnored="false" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
+<body>
+
+	<h2>Total early real estate tax for each owner</h2>
+
+<!--	<p><b>Simple List:</b><p>
+	
+	${s}  -->
+
+	
+	
+
+</body>
 </html>

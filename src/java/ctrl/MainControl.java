@@ -22,57 +22,54 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping //Maps category url
+@RequestMapping
 public class MainControl {
-// grazinti sarasa 
 
-    @RequestMapping(value = "/get", method = RequestMethod.GET) //Maps category/getCat
+    @RequestMapping(value = "/get", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
-    @ResponseBody //Kad grąžintų atsakymą iš db į browserį
-    public String get() {    //http://localhost:9999/WS_full/buildings/get
+    @ResponseBody  //http://localhost:9999/WS_full/buildings/get
+    public String get() {
         registry a = new registry();
         return a.gautiSarasa().toString();
     }
 
     @RequestMapping(value = "/tax_{reiksme}", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
-    @ResponseBody //Kad grąžintų atsakymą iš db į browserį
+    @ResponseBody //http://localhost:9999/WS_full/buildings/tax_Tadas
     public String getThat(@PathVariable String reiksme) {
         int totalAmount = 0;
-        int skaiciavimas=0;
-        Integer str=null;
+        int skaiciavimas = 0;
+        Double tax = null;
         registry a = new registry();
-        ArrayList<buildings> b=a.tax(reiksme);
-         HashMap<String, Integer> map 
-            = new HashMap<>(); 
-      
-        for(buildings c: b){
-            switch(c.getProperty_type().toLowerCase()) {
-  case "butas":
-  map.put(c.getProperty_type(),7);
-    break;
-  case "sodas":
-  map.put(c.getProperty_type(),2);
-    break;
-      case "kiemas":
-   map.put(c.getProperty_type(),3);
-    break;
-      case "namas":
-   map.put(c.getProperty_type(),5);
-    break;
-  default:
-  map.put(c.getProperty_type(),4);
-}
+        ArrayList<buildings> b = a.tax(reiksme);
+        HashMap<String, Double> map
+                = new HashMap<>();
+        for (buildings c : b) {
+            switch (c.getProperty_type().toLowerCase()) {
+                case "butas":
+                    map.put(c.getProperty_type(), 0.07);
+                    break;
+                case "sodas":
+                    map.put(c.getProperty_type(), 0.02);
+                    break;
+                case "kiemas":
+                    map.put(c.getProperty_type(), 0.03);
+                    break;
+                case "namas":
+                    map.put(c.getProperty_type(), 0.04);
+                    break;
+                default:
+                    map.put(c.getProperty_type(), 0.05);
+            }
 
-           str  = map.get(c.getProperty_type());
-        
-            
-            skaiciavimas+=c.getMarket_value()*str;
-           
+            tax = map.get(c.getProperty_type());
+
+            skaiciavimas += c.getMarket_value() * tax;
+
         }
-        String s=String.valueOf(skaiciavimas);  
-        
-       return s;
+        String s = String.valueOf(skaiciavimas);
+
+        return reiksme + " siais metais uz visus savo pastatus tures sumoketi = " + s;
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -93,8 +90,7 @@ public class MainControl {
     @ResponseStatus(value = HttpStatus.OK)
     @ResponseBody
     //link'as perduodant parametrus atrodys taip: http://localhost:9999/WS_full/buildings/add_slenio_zigimantas_40_20000_sodas
-    public ModelAndView add(@PathVariable String ad, @PathVariable String ow, @PathVariable int s, @PathVariable int m, @PathVariable String pt) { //ModelAndView: Represents a model and view returned by a handler, to be resolved by a DispatcherServlet.
-        //t.y. sėkmės ir nesėkmės atveju įvyks redirect į kažkokį puslapį
+    public ModelAndView add(@PathVariable String ad, @PathVariable String ow, @PathVariable int s, @PathVariable int m, @PathVariable String pt) { 
         registry a = new registry();
         try {
             boolean success = a.prideti(ad, ow, s, m, pt); //Kviečiame kategorijų pridėjimą
@@ -110,9 +106,8 @@ public class MainControl {
     }
 
     @RequestMapping(value = "/del_{addd}", method = RequestMethod.DELETE)
-    //link'as perduodant parametrus atrodys taip:http://localhost:9999/WS_full/buildings/del_slenio // addressa 
     @ResponseStatus(value = HttpStatus.OK)
-    @ResponseBody
+    @ResponseBody //http://localhost:9999/WS_full/buildings/del_slenio // addressa 
     public ModelAndView delete(@PathVariable String addd) {
         registry afv = new registry();
         try {
@@ -127,14 +122,12 @@ public class MainControl {
         }
     }
 
-    //Kintamieji mappinge ir metodo argumentu pavadinimai turi sutapti
+   
     @RequestMapping(value = "/upd_{ad}_{nmv}", method = RequestMethod.PUT)
-    //link'as perduodant parametrus atrodys taip:http://localhost:9999/WS_full/buildings/upd_slenio_20
     @ResponseStatus(value = HttpStatus.OK)
-    @ResponseBody
+    @ResponseBody //:http://localhost:9999/WS_full/buildings/upd_slenio_20
     public ModelAndView update(@PathVariable String ad, @PathVariable int nmv) {
         registry afv = new registry();
-        // int nwmi=Integer.parseInt(nmv);  
         try {
             boolean a = afv.keisti(ad, nmv);
             if (a) {
