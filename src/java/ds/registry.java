@@ -106,7 +106,7 @@ public class registry implements Serializable {
         return buildings_l;
     }
 
-    public void prisijungtiPrieDB() { //
+    public void prisijungtiPrieDB() { 
         try {
             Class.forName("com.mysql.jdbc.Driver"); //add to library myslq driver 
             String DB_URL = "jdbc:mysql://localhost:3306/";
