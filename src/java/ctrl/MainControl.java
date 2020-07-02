@@ -36,8 +36,6 @@ public class MainControl {
     }
     
 
-    
-    
 
     @RequestMapping(value = "/tax_{reiksme}", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
@@ -102,9 +100,9 @@ public class MainControl {
         try {
             boolean success = a.prideti(ad, ow, s, m, pt); //Kviečiame kategorijų pridėjimą
             if (success) {
-                return new ModelAndView("redirect:/index.htm");
+                return new ModelAndView("redirect");
             } else {
-                return new ModelAndView("redirect:/klaida.htm");
+                return new ModelAndView("klaida");
             }
         } catch (Exception e) {
             return new ModelAndView("redirect:/klaida.htm");
