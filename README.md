@@ -13,6 +13,8 @@
 * try adding first values through postman (post)  `value = "/add_{address}_{owner}_{size}_{market_value}_{property_type}", method = RequestMethod.POST` example
 `http://localhost:9999/WS_full/buildings/add_Vilniaus gatve_Steponas_30_20000_butas`
 * display list: `http://localhost:9999/WS_full/buildings/`
+* delete using address `value = "/del_{Adress}", method = RequestMethod.DELETE` example `http://localhost:9999/WS_full/buildings/del_Vilniaus gatve`
+* edit market value through address `value= "/upd_{address}_{new_mareket_value}", method = RequestMethod.PUT` example `http://localhost:9999/WS_full/buildings/upd_Vilniaus gatve_30000`
 * endpoint example `value = "/tax_{Owner}", method = RequestMethod.GET` `http://localhost:9999/WS_full/buildings/tax_Steponas` 
 # Comments
 TODO
