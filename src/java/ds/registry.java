@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class registry implements Serializable {
 
     private ArrayList<buildings> buildings_l = new ArrayList();
+      private ArrayList<buildings> buildings_2 = new ArrayList();
  
     Connection conn;
     Statement stmt;
@@ -41,7 +42,35 @@ public class registry implements Serializable {
             return false;
         }
     }
-
+    
+   /*  public buildings gautita(String own) { // gauti 1 irasa pagal
+       buildings bt = null;
+        registry a = new registry();
+        try {
+            prisijungtiPrieDB();
+            String sql = "SELECT * FROM test.ps  WHERE Owner = '" + own+ "'";
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+               String add = rs.getString("Address");
+                String own2 = rs.getString("Owner");
+               String size2= rs.getString("Size");
+                 String Mar_val= rs.getString("Market_Value");
+                 String Prop_type = rs.getString("Property_Type");
+                   int size_int=Integer.parseInt(size2);  
+                    int Mar_val_int=Integer.parseInt(Mar_val);                  
+               buildings naujas = new buildings(add,own2,size_int,Mar_val_int,Prop_type);
+                bt = naujas;
+                break;
+            }
+            rs.close();
+            atsijungtiNuoDB();
+        } catch (Exception e) {
+            System.out.println("klaida gaunant : ");
+            e.printStackTrace();
+        }
+        return bt;
+    }
+*/
     public boolean keisti(String ad, int nmv) {
         try {
             this.prisijungtiPrieDB();
@@ -54,9 +83,34 @@ public class registry implements Serializable {
             return false;
         }
     }
+    public ArrayList<buildings>tax(String own){
+         
+            this.buildings_2 = new ArrayList();
+        try {
+            this.prisijungtiPrieDB();
+            String sql = "SELECT * FROM test.ps  WHERE Owner = '" + own+ "'";
+             ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                String add = rs.getString("Address");
+                String owna = rs.getString("Owner");
+               String size2= rs.getString("Size");
+                 String Mar_val= rs.getString("Market_Value");
+                 String Prop_type = rs.getString("Property_Type");
+                   int size_int=Integer.parseInt(size2);  
+                    int Mar_val_int=Integer.parseInt(Mar_val);                  
+                buildings_2.add(new buildings(add,owna,size_int,Mar_val_int,Prop_type));
+            }
+            rs.close();
+            atsijungtiNuoDB();
+        } catch (Exception e) {
+            System.out.println("klaida gaunant duomenys: ");
+            e.printStackTrace();
+        }
+        return buildings_2;
+    
+    }
 
    
-
    
     public ArrayList<buildings> gautiSarasa() { // gauti sarasa
         this.buildings_l = new ArrayList();
