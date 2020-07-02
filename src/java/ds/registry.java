@@ -109,13 +109,26 @@ public class registry implements Serializable {
     public void prisijungtiPrieDB() { //
         try {
             Class.forName("com.mysql.jdbc.Driver"); //add to library myslq driver 
-            String DB_URL = "jdbc:mysql://localhost:3306/test";
+            String DB_URL = "jdbc:mysql://localhost:3306/";
             String USER = "root";
             String PASS = "";
             buildings_l.clear();
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             System.out.println("prisijungta");
             stmt = conn.createStatement();
+          String sql1 = "CREATE DATABASE test";
+      stmt.executeUpdate(sql1);
+      String sql = "CREATE TABLE test.ps" +
+                   "(Address VARCHAR(255) , " +
+                   " Owner VARCHAR(255), " + 
+                   " Size INTEGER, " + 
+                   " Market_Value INTEGER, " + 
+                  " Property_Type VARCHAR(255), " + 
+                   " PRIMARY KEY ( Owner ))"; 
+            
+              stmt.executeUpdate(sql);
+            
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
