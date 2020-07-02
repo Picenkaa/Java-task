@@ -1,4 +1,4 @@
-# Required proggrams:
+# Required programms:
 * [XAMPP](https://www.apachefriends.org/index.html) *for server and database*
 * [Postman](https://www.postman.com/) *for requests*
 * [DB connector](https://drive.google.com/file/d/1fqU5b9HNUzEqTEixwwc2Vh0YlXFx42wp/view?usp=sharing) *for db connection*
