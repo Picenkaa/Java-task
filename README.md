@@ -1,7 +1,7 @@
 # Required proggrams:
-* [XAMPP](https://www.apachefriends.org/index.html) * for server and database*
+* [XAMPP](https://www.apachefriends.org/index.html) *for server and database*
 * [Postman](https://www.postman.com/) *for requests*
-* [DB connector](https://drive.google.com/file/d/1fqU5b9HNUzEqTEixwwc2Vh0YlXFx42wp/view?usp=sharing) *db connector*
+* [DB connector](https://drive.google.com/file/d/1fqU5b9HNUzEqTEixwwc2Vh0YlXFx42wp/view?usp=sharing) *for db connection*
  # Steps
  1. Download project [zip](https://github.com/Picenkaa/Java-task/archive/master.zip) or  `$ git clone https://github.com/Picenkaa/Java-task.git`
  2. Start Apache MySql and Tomcat.
