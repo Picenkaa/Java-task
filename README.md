@@ -5,7 +5,7 @@
  # Steps
  1. Download project [zip](https://github.com/Picenkaa/Java-task/archive/master.zip) or  `$ git clone https://github.com/Picenkaa/Java-task.git`
  2. Start Apache MySql and Tomcat.
- ![](ft_docu/1.png)
+ ![](ft_docu/1.png)<br />
  3.Add connector to libraries. *(not in memory because connected automatically creates database and table with variables)*
 ![Adding data to database](ft_docu/Step3.jpg)
 4. `ctrl+11` or run on web.
