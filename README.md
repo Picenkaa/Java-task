@@ -9,8 +9,8 @@
  3.Add connector to libraries. *(not in memory because connected automatically creates database and table with variables)*
 ![Adding data to database](ft_docu/Step3.jpg)
 4. `ctrl+11` or run on web.
-# RESTful methods
-* try adding first values through postman (post)  `value = "/add_{address}_{owner}_{size}_{market_value}_{property_type}", method = RequestMethod.POST`
+# RESTful methods(use postman)
+* try passing parameters through postman (post)  `value = "/add_{address}_{owner}_{size}_{market_value}_{property_type}", method = RequestMethod.POST`
 [example](http://localhost:9999/WS_full/add_Vilniaus_Steponas_30_20000_butas)
 * [display list](http://localhost:9999/WS_full/)
 * delete using address `value = "/del_{Adress}", method = RequestMethod.DELETE` [example](http://localhost:9999/WS_full/del_Vilniaus)
