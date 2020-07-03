@@ -18,4 +18,7 @@
 * endpoint `value = "/tax_{Owner}", method = RequestMethod.GET` [example](http://localhost:9999/WS_full/tax_Steponas)
 # Comments
 TODO
+ * App made with Java Web Application with Spring Web framework so I didn't able to correctly use Swagger JUnit and Mockito without Maven.
+ * I used regular mysql datbase but to compensate that while deploying app it automatically creates database and table if it does not exists.
+ * To find endpoint (total yearly real estate tax) I used Hashmap and switch statment to change tax rates for different Property types.
  
