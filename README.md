@@ -10,10 +10,11 @@
 ![Adding data to database](ft_docu/Step3.jpg)
 4. `ctrl+11` or run on web.
 # RESTful methods
-* try adding first values through postman (post)  `value = "/add_{address}_{owner}_{size}_{market_value}_{property_type}", method = RequestMethod.POST` [example](http://localhost:9999/WS_full/add_Vilniaus gatve_Steponas_30_20000_butas)
-* [display list:](http://localhost:9999/WS_full/)
-* delete using address `value = "/del_{Adress}", method = RequestMethod.DELETE` [example](http://localhost:9999/WS_full/del_Vilniaus gatve)
-* edit market value through address `value= "/upd_{address}_{new_mareket_value}", method = RequestMethod.PUT` [example](http://localhost:9999/WS_full/upd_Vilniaus gatve_30000)
+* try adding first values through postman (post)  `value = "/add_{address}_{owner}_{size}_{market_value}_{property_type}", method = RequestMethod.POST`
+[example](http://localhost:9999/WS_full/add_Vilniaus_Steponas_30_20000_butas)
+* [display list](http://localhost:9999/WS_full/)
+* delete using address `value = "/del_{Adress}", method = RequestMethod.DELETE` [example](http://localhost:9999/WS_full/del_Vilniaus)
+* edit market value through address `value= "/upd_{address}_{new_mareket_value}", method = RequestMethod.PUT` [example](http://localhost:9999/WS_full/upd_Vilniaus_30000)
 * endpoint `value = "/tax_{Owner}", method = RequestMethod.GET` [example](http://localhost:9999/WS_full/tax_Steponas)
 # Comments
 TODO
