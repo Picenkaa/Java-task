@@ -8,7 +8,7 @@
  ![](ft_docu/1.png)<br />
  3.Add connector to libraries. *(not in memory because connected automatically creates database and table with variables)*
 ![Adding data to database](ft_docu/Step3.jpg)
-4. `ctrl+11` or run on web.
+4. `F6` or deploy project to run.
 # RESTful methods(use postman)
 * try passing parameters through postman (post)  `value = "/add_{address}_{owner}_{size}_{market_value}_{property_type}", method = RequestMethod.POST`
 [example](http://localhost:9999/WS_full/add_Vilniaus_Steponas_30_20000_butas)
