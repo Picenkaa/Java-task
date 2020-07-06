@@ -2,13 +2,17 @@
 * [XAMPP](https://www.apachefriends.org/index.html) *for server and database*
 * [Postman](https://www.postman.com/) *for requests*
 * [DB connector](https://drive.google.com/file/d/1fqU5b9HNUzEqTEixwwc2Vh0YlXFx42wp/view?usp=sharing) *for db connection*
- # Steps
+ # Steps to run on IDE
  1. Download project [zip](https://github.com/Picenkaa/Java-task/archive/master.zip) or  `$ git clone https://github.com/Picenkaa/Java-task.git`
- 2. Start Apache MySql and Tomcat. *server port 9999*
+ 2. Start Apache MySql and Tomcat. *in my case server port 9999*
  ![](ft_docu/1.png)<br />
  3.Add connector to libraries. *(not in memory because connected automatically creates database and table with variables)*
 ![Adding data to database](ft_docu/Step3.jpg)
-4. `F6` or deploy project to run.
+4. `F6` or deploy project to run on 
+# Steps to deploy project outside IDE
+1. Start Apache MySql and Tomcat. *in my case server port 9999*
+2. Open [Manager app](http://localhost:9999/manager/html) *user username="admin" password="s3cret"* to change role or password go to tomcat-users.xml
+3. Select WAR file to upload which is saved in dist folder Web_Finanse-master\Web_Finanse-master\dist and deploy on your local machine.
 # RESTful methods(use postman)
 * try passing parameters through postman (post)  `value = "/add_{address}_{owner}_{size}_{market_value}_{property_type}", method = RequestMethod.POST`
 [example](http://localhost:9999/WS_full/add_Vilniaus_Steponas_30_20000_butas)
