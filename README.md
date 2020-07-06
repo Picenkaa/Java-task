@@ -24,6 +24,6 @@
  * App made with Java Web Application with Spring Web framework so I didn't able to correctly use Swagger JUnit and Mockito without Maven.
  * I used regular mysql datbase but to compensate that while deploying app it automatically creates database and table if it does not exists.
  ![](ft_docu/c.png)
- * To find endpoint (total yearly real estate tax) I used Hashmap and switch statment to change tax rates for different Property types.
+ * To find endpoint (total yearly real estate tax) I used Hashmap and switch statment to change tax rates for different Property types. *(todo) add Drop-down list to select tax ratio*
  # TODO
  Add better GUI with html forms(not via url), tests and API documentation.
