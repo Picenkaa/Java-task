@@ -16,10 +16,10 @@
 # RESTful methods(use postman)
 * try passing parameters through postman (post)  `value = "/add_{address}_{owner}_{size}_{market_value}_{property_type}", method = RequestMethod.POST`
 [example](http://localhost:9999/WS_full/add_Vilniaus_Steponas_30_20000_butas)
-* [display list](http://localhost:9999/WS_full/)
+* [display list](http://localhost:9999/WS_full/) <br>![](ft_docu/a.png)<br />
 * delete using address `value = "/del_{Adress}", method = RequestMethod.DELETE` [example](http://localhost:9999/WS_full/del_Vilniaus)
 * edit market value through address `value= "/upd_{address}_{new_mareket_value}", method = RequestMethod.PUT` [example](http://localhost:9999/WS_full/upd_Vilniaus_30000)
-* endpoint `value = "/tax_{Owner}", method = RequestMethod.GET` [example](http://localhost:9999/WS_full/tax_Steponas)
+* endpoint `value = "/tax_{Owner}", method = RequestMethod.GET` [example](http://localhost:9999/WS_full/tax_Steponas) <br>![](ft_docu/b.png)<br />
 # Comments
  * App made with Java Web Application with Spring Web framework so I didn't able to correctly use Swagger JUnit and Mockito without Maven.
  * I used regular mysql datbase but to compensate that while deploying app it automatically creates database and table if it does not exists.
