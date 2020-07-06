@@ -8,7 +8,7 @@
  ![](ft_docu/1.png)<br />
  3.Add connector to libraries. *(not in memory because connected automatically creates database and table with variables)*
 ![Adding data to database](ft_docu/Step3.jpg)
-4. `F6` or deploy project to run on 
+4. `F6` or deploy project to run on WEB
 # Steps to deploy project outside IDE
 1. Start Apache MySql and Tomcat. *in my case server port 9999*
 2. Open [Manager app](http://localhost:9999/manager/html) *user username="admin" password="s3cret"* to change role or password go to tomcat-users.xml
