@@ -14,7 +14,7 @@
 2. Open [Manager app](http://localhost:9999/manager/html) *user username="admin" password="s3cret"* note *to change role or password go to tomcat-users.xml*
 3. Select WAR file to upload which is saved in dist folder Web_Finanse-master\Web_Finanse-master\dist and deploy on your local machine.
 # RESTful methods(use postman)
-* try passing parameters through postman (post)  `value = "/add_{address}_{owner}_{size}_{market_value}_{property_type}", method = RequestMethod.POST`
+* try passing parameters through postman, add first values (post)  `value = "/add_{address}_{owner}_{size}_{market_value}_{property_type}", method = RequestMethod.POST`
 [example](http://localhost:9999/WS_full/add_Vilniaus_Steponas_30_20000_butas)
 * [display list](http://localhost:9999/WS_full/) <br>![](ft_docu/a.png)<br />
 * delete using address `value = "/del_{Adress}", method = RequestMethod.DELETE` [example](http://localhost:9999/WS_full/del_Vilniaus)
