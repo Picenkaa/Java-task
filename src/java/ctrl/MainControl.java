@@ -27,9 +27,9 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping
 public class MainControl {
 
-    @RequestMapping(value = "/get", method = RequestMethod.GET)
+    @RequestMapping(value = "/get", method = RequestMethod.GET) // pasitikrinimui grazina json lista
     @ResponseStatus(value = HttpStatus.OK)
-    @ResponseBody  //http://localhost:9999/WS_full/buildings/get
+    @ResponseBody  //http://localhost:9999/WS_full/get
     public String get() {
         registry a = new registry();
         return a.gautiSarasa().toString();
@@ -37,11 +37,11 @@ public class MainControl {
     
 
 
-    @RequestMapping(value = "/tax_{reiksme}", method = RequestMethod.GET)
+    @RequestMapping(value = "/tax_{reiksme}", method = RequestMethod.GET) // endpoint
     @ResponseStatus(value = HttpStatus.OK)
-    @ResponseBody //http://localhost:9999/WS_full/buildings/tax_Tadas
+    @ResponseBody //http://localhost:9999/WS_full/tax_Tadas
     public String getThat(@PathVariable String reiksme) {
-        int totalAmount = 0;
+      
         int skaiciavimas = 0;
         Double tax = null;
         registry a = new registry();
@@ -77,28 +77,28 @@ public class MainControl {
         return reiksme + " siais metais uz visus savo pastatus tures sumoketi = " + s;
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET) // get json list
     public ModelAndView listAction() {
         registry a = new registry();
-        ArrayList<buildings> empList = a.gautiSarasa();
+        ArrayList<buildings> list = a.gautiSarasa();
 
         ModelAndView mv = new ModelAndView();
 
         mv.setViewName("index");
-        mv.addObject("empList", empList);
+        mv.addObject("list", list);
 
         return mv;
 
     }
 
-    @RequestMapping(value = "/add_{ad}_{ow}_{s}_{m}_{pt}", method = RequestMethod.POST)
+    @RequestMapping(value = "/add_{ad}_{ow}_{s}_{m}_{pt}", method = RequestMethod.POST) // add
     @ResponseStatus(value = HttpStatus.OK)
     @ResponseBody
-    //link'as perduodant parametrus atrodys taip: http://localhost:9999/WS_full/buildings/add_slenio_zigimantas_40_20000_sodas
+    //link'as perduodant parametrus atrodys taip: http://localhost:9999/WS_full/add_slenio_zigimantas_40_20000_sodas
     public ModelAndView add(@PathVariable String ad, @PathVariable String ow, @PathVariable int s, @PathVariable int m, @PathVariable String pt) { 
         registry a = new registry();
         try {
-            boolean success = a.prideti(ad, ow, s, m, pt); //Kviečiame kategorijų pridėjimą
+            boolean success = a.prideti(ad, ow, s, m, pt); //pridėjimas
             if (success) {
                 return new ModelAndView("redirect");
             } else {
@@ -110,9 +110,9 @@ public class MainControl {
         }
     }
 
-    @RequestMapping(value = "/del_{addd}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/del_{addd}", method = RequestMethod.DELETE) //del
     @ResponseStatus(value = HttpStatus.OK)
-    @ResponseBody //http://localhost:9999/WS_full/buildings/del_slenio // addressa 
+    @ResponseBody //http://localhost:9999/WS_full/del_slenio // addressa 
     public ModelAndView delete(@PathVariable String addd) {
         registry afv = new registry();
         try {
@@ -128,9 +128,9 @@ public class MainControl {
     }
 
    
-    @RequestMapping(value = "/upd_{ad}_{nmv}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/upd_{ad}_{nmv}", method = RequestMethod.PUT) // edit
     @ResponseStatus(value = HttpStatus.OK)
-    @ResponseBody //:http://localhost:9999/WS_full/buildings/upd_slenio_20
+    @ResponseBody //:http://localhost:9999/WS_full/upd_slenio_20
     public ModelAndView update(@PathVariable String ad, @PathVariable int nmv) {
         registry afv = new registry();
         try {

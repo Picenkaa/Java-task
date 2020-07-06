@@ -14,7 +14,7 @@
 	<p><b>Iterated List:</b><p>
 
 	<ol>
-		<c:forEach var="emp" items="${empList}">
+		<c:forEach var="emp" items="${list}">
 		
 			<li>${emp}</li>
 			

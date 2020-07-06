@@ -20,9 +20,7 @@
         <property name="mappings">
             <props>
                 <prop key="index.htm">indexController</prop> <!-- Index failo mappingas -->
-                <prop key="/buildings/*">buildings</prop> <!-- Tam, kad būtų galima pasiekti kontroleryje aprašytus metodus, nurodome, kad mes naudosime kelią /category/*. *
-                                                            reiškia, kad visi sub path nurodyti kontroleryje bus pasiekiami. Praeitą kartą paskaitos metu nesigavo, nes trūko * ir jis pasiekė 
-                                                            tik vieną konkretų metodą. Šioje vietoje nurorome url kaip pasieksime savo konrolerį ir jo metodus.-->
+                <prop key="//*">buildings</prop> 
                 <prop key="klaida.htm">klaida</prop> <!-- Prisidedame dar vieną puslapį, į kurį mus numes klaidos atveju -->
             </props>
         </property>
@@ -45,6 +43,7 @@
         class nurodome, kuri mūsų klasė yra kontroleris.
         Jei bus keli kontroleriai, kiekvienam jų aprašome mapping ir ir <prop>
     -->
+   
     <bean name="buildings"
           class="ctrl.MainControl"/>
     <!-- Klaidos kontroleris -->
