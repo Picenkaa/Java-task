@@ -1,25 +1,44 @@
+
+<%@page import="ds.buildings"%>
 <%@ page isELIgnored="false" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="ds.registry,java.util.*"%>  
 
 <html>
 <body>
+<table>
+    <table border="1">
+    <tr>
+        <th>Address</th>
+        <th>Owner</th>
+        <th>Size</th>
+        <th>Market value</th>
+        <th>Property type</th>
+    </tr>
+    <%
+        registry a= new registry();
+         ArrayList<buildings> b = a.gautiSarasa();
+for (buildings c: b)
+{
 
-	<h2>Total early real estate tax for each owner</h2>
 
-<!--	<p><b>Simple List:</b><p>
-	
-	${empList}  -->
-
-	
-	<p><b>Iterated List:</b><p>
-
-	<ol>
-		<c:forEach var="emp" items="${list}">
+%>
+    <tr>
+       <td> <%=c.getAddress()%></td> 
+       <td> <%=c.getOwner()%></td> 
+       <td> <%=c.getSize()%></td> 
+       <td> <%=c.getMarket_value()%></td> 
+       <td> <%=c.getProperty_type()%></td> 
+    </tr>
+    <%       
+}
+%>
 		
-			<li>${emp}</li>
-			
-		</c:forEach>
-	</ol>
+	</table>
 
 </body>
 </html>
+
+ 
+
+   
