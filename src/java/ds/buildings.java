@@ -67,10 +67,11 @@ public class buildings implements Serializable{
     
     
 //--------------------------------------------------
+ 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 29 * hash + Objects.hashCode(this.owner);
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.owner);
         return hash;
     }
 
@@ -91,6 +92,8 @@ public class buildings implements Serializable{
         }
         return true;
     }
+
+    
 //-------------------------------------
 
     @Override

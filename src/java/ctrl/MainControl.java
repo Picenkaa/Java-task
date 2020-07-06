@@ -9,6 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 import static jdk.nashorn.internal.objects.NativeArray.map;
 import org.springframework.beans.factory.annotation.Autowired;
+import static org.springframework.core.convert.TypeDescriptor.array;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.http.HttpStatus;
@@ -40,12 +41,13 @@ public class MainControl {
     @RequestMapping(value = "/tax_{reiksme}", method = RequestMethod.GET) // endpoint
     @ResponseStatus(value = HttpStatus.OK)
     @ResponseBody //http://localhost:9999/WS_full/tax_Tadas
-    public String getThat(@PathVariable String reiksme) {
+    public String getThat(@PathVariable("reiksme") String reiksme) {
       
         int skaiciavimas = 0;
         Double tax = null;
         registry a = new registry();
         ArrayList<buildings> b = a.tax(reiksme);
+      
         HashMap<String, Double> map
                 = new HashMap<>();
         for (buildings c : b) {
@@ -69,12 +71,13 @@ public class MainControl {
             tax = map.get(c.getProperty_type());
 
             skaiciavimas += c.getMarket_value() * tax;
+          
 
         }
         String s = String.valueOf(skaiciavimas);
         
-
-        return reiksme + " siais metais uz visus savo pastatus tures sumoketi = " + s;
+      // model.addAttribute("s",s);
+        return reiksme + " will pay " + s + " &#8364 total yearly real estate tax";
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET) // get json list
@@ -90,6 +93,9 @@ public class MainControl {
         return mv;
 
     }
+    
+    
+    
 
     @RequestMapping(value = "/add_{ad}_{ow}_{s}_{m}_{pt}", method = RequestMethod.POST) // add
     @ResponseStatus(value = HttpStatus.OK)
