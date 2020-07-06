@@ -10,7 +10,7 @@
 ![Adding data to database](ft_docu/Step3.jpg)
 4. `F6` or deploy project to run on WEB
 # Steps to deploy project outside IDE
-1. Start Apache MySql and Tomcat. *in my case server port 9999*
+1. Start Apache MySql and Tomcat *in my case server port 9999*
 2. Open [Manager app](http://localhost:9999/manager/html) *user username="admin" password="s3cret"* note *to change role or password go to tomcat-users.xml*
 3. Select WAR file to upload which is saved in dist folder Web_Finanse-master\Web_Finanse-master\dist and deploy on your local machine.
 # RESTful methods(use postman)
